@@ -16,7 +16,7 @@
   <form action="">
     <p>Required. Enter up to 100 comma-separated Tweet IDs.</p>
     <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="Tweet ID" name="tweetid">
+      <input type="text" class="form-control" placeholder="Tweet IDs" name="tweetids">
       <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
     </div>
   </form>
