@@ -16,3 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/tweet-lookup', function() {
+    return view('tweet-lookup');
+});
+
+Route::get('/users-lookup', function() {
+    return view('users-lookup');
+});
+
+Route::get('/manage-tweets', function() {
+    return view('manage-tweets');
+});

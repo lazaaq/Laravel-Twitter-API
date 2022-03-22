@@ -9,7 +9,7 @@
         <div class="card-body">
           <h5 class="card-title">Tweet Lookup</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary w-100">Go</a>
+          <a href="/tweet-lookup" class="btn btn-primary w-100">Go</a>
         </div>
       </div>
     </div>
@@ -19,7 +19,7 @@
         <div class="card-body">
           <h5 class="card-title">Users Lookup</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary w-100">Go</a>
+          <a href="/users-lookup" class="btn btn-primary w-100">Go</a>
         </div>
       </div>
     </div>
@@ -29,7 +29,7 @@
         <div class="card-body">
           <h5 class="card-title">Manage Tweets</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary w-100">Go</a>
+          <a href="/manage-tweets" class="btn btn-primary w-100">Go</a>
         </div>
       </div>
     </div>
@@ -38,9 +38,5 @@
 @endsection
 
 @section('css')
-<style>  
-  .container .row {
-    min-height: 100vh;
-  }
-</style>
+
 @endsection
