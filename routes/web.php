@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,14 +18,10 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/tweet-lookup', function() {
-    return view('tweet-lookup');
-});
+Route::get('/tweet-lookup', [MyController::class, 'tweetLookup']);
 
-Route::get('/users-lookup', function() {
-    return view('users-lookup');
-});
+Route::get('/users-lookup', [MyController::class, 'usersLookup']);
 
-Route::get('/manage-tweets', function() {
-    return view('manage-tweets');
-});
+Route::get('/manage-tweets', [MyController::class, 'manageTweets']);
+
+// Route::get('/tes/{id}', [MyController::class, 'getTweetById']);
