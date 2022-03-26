@@ -5,40 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Noweh\TwitterApi\Client;
 
-class MyController extends Controller
+class TweetLookupController extends Controller
 {
-    public function tweetLookup()
-    {
-        $client = $this->getAPIClient();
-
+    public function index() {
         return view('tweet-lookup', [
             'tweets' => '',
         ]);
     }
 
-    public function usersLookup()
-    {
-        $client = $this->getAPIClient();
+    public function byId($id) {
 
-        return view('users-lookup', [
-            'users' => '',
-        ]);
     }
 
-    public function manageTweets()
-    {
-        $client = $this->getAPIClient();
+    public function byIds($ids) {
 
-        return view('manage-tweets', [
-            'tweets' => '',
-        ]);
     }
-
-    // public function getTweetById($id) {
-    //     $client = $this->getAPIClient();
-    //     $result = $client->tweet()->performRequest('GET', array( 'id' => $id));
-    //     dd($result);
-    // }
 
     public function getAPIClient() {
         $settings = [
