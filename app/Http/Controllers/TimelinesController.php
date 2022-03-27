@@ -12,7 +12,10 @@ class TimelinesController extends Controller
         return view('timelines');
     }
 
-    public function tweet($id) {
+    public function tweet(Request $request) {
+        $request->validate([
+            'userid' => 'required'
+        ]);
         $uri = 'https://api.twitter.com/2/';
         $client = new Client(['base_uri' => $uri]);
 
@@ -20,7 +23,7 @@ class TimelinesController extends Controller
             'Authorization' => 'Bearer ' . env('BEARER_TOKEN'),
         ];
 
-        $url = $uri . 'users/' . $id . '/tweets';
+        $url = $uri . 'users/' . $request->userid . '/tweets';
         $response = $client->request('GET', $url, [
             'headers' => $headers
         ])->getBody()->getContents();
@@ -29,7 +32,10 @@ class TimelinesController extends Controller
         ]);
     }
 
-    public function mention($id) {
+    public function mention(Request $request) {
+        $request->validate([
+            'userids' => 'required'
+        ]);
         $uri = 'https://api.twitter.com/2/';
         $client = new Client(['base_uri' => $uri]);
 
@@ -37,12 +43,19 @@ class TimelinesController extends Controller
             'Authorization' => 'Bearer ' . env('BEARER_TOKEN'),
         ];
 
-        $url = $uri . 'users/' . $id . '/mentions';
-        $response = $client->request('GET', $url, [
-            'headers' => $headers
-        ])->getBody()->getContents();
+        $all_of_the_ids = explode(',', $request->userids);
+        $all_of_the_tweets = array();
+        for ($i = 0; $i < count($all_of_the_ids); $i++) {
+            $id = $all_of_the_ids[$i];
+            $url = $uri . 'users/' . $id . '/tweets';
+            $response = $client->request('GET', $url, [
+                'headers' => $headers
+            ])->getBody()->getContents();
+            $response = json_decode($response);
+            array_push($all_of_the_tweets, $response);
+        }
         return response()->json([
-            'response' => json_decode($response)
+            'response' => $all_of_the_tweets
         ]);
     }
 }

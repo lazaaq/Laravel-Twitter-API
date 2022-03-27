@@ -22,8 +22,8 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'timelines'], function () {
     Route::get('', [TimelinesController::class, 'index']);
-    Route::get('tweet/{id}', [TimelinesController::class, 'tweet']);
-    Route::get('mention/{id}', [TimelinesController::class, 'mention']);
+    Route::post('tweet', [TimelinesController::class, 'tweet'])->name('timelines.tweet');
+    Route::post('mention', [TimelinesController::class, 'mention'])->name('timelines.mention');
 });
 
 Route::group(['prefix' => 'users-lookup'], function () {

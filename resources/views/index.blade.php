@@ -7,7 +7,7 @@
       <div class="card">
         <img src="{{ asset('thumbnail/tweet-lookup.jpg') }}" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">Tweet Lookup</h5>
+          <h5 class="card-title">Timelines</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <a href="/tweet-lookup" class="btn btn-primary w-100">Go</a>
         </div>
@@ -27,7 +27,7 @@
       <div class="card">
         <img src="{{ asset('thumbnail/manage-tweets.jpg') }}" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">Manage Tweets</h5>
+          <h5 class="card-title">Search Tweets</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <a href="/manage-tweets" class="btn btn-primary w-100">Go</a>
         </div>
