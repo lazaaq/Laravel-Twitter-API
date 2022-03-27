@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\ManageTweetsController;
-use App\Http\Controllers\TweetLookupController;
+use App\Http\Controllers\TimelinesController;
 use App\Http\Controllers\UsersLookupController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,10 +20,10 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::group(['prefix' => 'tweet-lookup'], function () {
-    Route::get('', [TweetLookupController::class, 'index']);
-    Route::get('id/{id}', [TweetLookupController::class, 'byId']);
-    Route::get('ids/{ids}', [TweetLookupController::class, 'byIds']);
+Route::group(['prefix' => 'timelines'], function () {
+    Route::get('', [TimelinesController::class, 'index']);
+    Route::get('tweet/{id}', [TimelinesController::class, 'tweet']);
+    Route::get('mention/{id}', [TimelinesController::class, 'mention']);
 });
 
 Route::group(['prefix' => 'users-lookup'], function () {
