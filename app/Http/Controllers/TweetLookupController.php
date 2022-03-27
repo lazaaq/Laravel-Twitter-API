@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Noweh\TwitterApi\Client;
+use Noweh\TwitterApi\TweetSearch;
 
 class TweetLookupController extends Controller
 {
@@ -14,23 +15,26 @@ class TweetLookupController extends Controller
     }
 
     public function byId($id) {
-
+        $settings = getSettings();
+        $data = (new TweetSearch($settings))
+            ->showMetrics()
+            ->onlyWithMedias()
+            ->addFilterOnUsernamesFrom([
+                'twitterdev',
+                'Noweh95'
+            ], TweetSearch::OPERATORS['OR'])
+            ->addFilterOnKeywordOrPhrase([
+                'Dune',
+                'DenisVilleneuve'
+            ], TweetSearch::OPERATORS['AND'])
+            ->addFilterOnLocales(['fr', 'en'])
+            ->showUserDetails()
+            ->performRequest()
+        ;
     }
 
     public function byIds($ids) {
 
     }
 
-    public function getAPIClient() {
-        $settings = [
-            'account_id' => env('USER_ID'),
-            'consumer_key' => env('CONSUMER_KEY'),
-            'consumer_secret' => env('CONSUMER_KEY_SECRET'),
-            'bearer_token' => env('BEARER_TOKEN'),
-            'access_token' => env('ACCESS_TOKEN'),
-            'access_token_secret' => env('ACCESS_TOKEN_SECRET')
-        ];
-        $client = new Client($settings);
-        return $client;
-    }
 }
