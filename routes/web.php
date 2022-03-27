@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ManageTweetsController;
+use App\Http\Controllers\SearchTweetsController;
 use App\Http\Controllers\TimelinesController;
 use App\Http\Controllers\UsersLookupController;
 use Illuminate\Support\Facades\Route;
@@ -34,8 +34,7 @@ Route::group(['prefix' => 'users-lookup'], function () {
     Route::get('byUsernames/{usernames}', [UsersLookupController::class, 'byUsernames']);
 });
 
-Route::group(['prefix' => 'manage-tweets'], function () {
-    Route::get('', [ManageTweetsController::class, 'index']);
-    Route::post('create', [ManageTweetsController::class, 'create']);
-    Route::delete('delete/{id}', [ManageTweetsController::class, 'delete']);
+Route::group(['prefix' => 'search-tweets'], function () {
+    Route::get('', [SearchTweetsController::class, 'index']);
+    Route::get('search/{query}', [SearchTweetsController::class, 'search']);
 });
