@@ -14,9 +14,12 @@ class UsersLookupController extends Controller
         ]);
     }
 
-    public function byId($id) {
+    public function byId(Request $request) {
+        $request->validate([
+            'userid' => 'required|integer',
+        ]);
         $data = (new UserSearch(getSettings()))
-            ->findByIdOrUsername($id, UserSearch::MODES['ID'])
+            ->findByIdOrUsername($request->userid, UserSearch::MODES['ID'])
             ->performRequest();
 
         return response()->json([
@@ -24,8 +27,11 @@ class UsersLookupController extends Controller
         ]);
     }
 
-    public function byIds($ids) {
-        $all_the_ids = explode(",", $ids);
+    public function byIds(Request $request) {
+        $request->validate([
+            'userids' => 'required',
+        ]);
+        $all_the_ids = explode(",", $request->userids);
         $all_the_data = array();
         for($i = 0; $i < count($all_the_ids); $i++) {
             $data = (new UserSearch(getSettings()))
@@ -36,9 +42,12 @@ class UsersLookupController extends Controller
         return $all_the_data;
     }
 
-    public function byUsername($username) {
+    public function byUsername(Request $request) {
+        $request->validate([
+            'username' => 'required',
+        ]);
         $data = (new UserSearch(getSettings()))
-            ->findByIdOrUsername($username, UserSearch::MODES['USERNAME'])
+            ->findByIdOrUsername($request->username, UserSearch::MODES['USERNAME'])
             ->performRequest();
 
         return response()->json([
@@ -46,8 +55,11 @@ class UsersLookupController extends Controller
         ]);
     }
 
-    public function byUsernames($usernames) {
-        $all_the_usernames = explode(",", $usernames);
+    public function byUsernames(Request $request) {
+        $request->validate([
+            'usernames' => 'required',
+        ]);
+        $all_the_usernames = explode(",", $request->usernames);
         $all_the_data = array();
         for($i = 0; $i < count($all_the_usernames); $i++) {
             $data = (new UserSearch(getSettings()))

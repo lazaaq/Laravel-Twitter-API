@@ -28,10 +28,10 @@ Route::group(['prefix' => 'timelines'], function () {
 
 Route::group(['prefix' => 'users-lookup'], function () {
     Route::get('', [UsersLookupController::class, 'index']);
-    Route::get('byId/{id}', [UsersLookupController::class, 'byId']);
-    Route::get('byIds/{ids}', [UsersLookupController::class, 'byIds']);
-    Route::get('byUsername/{username}', [UsersLookupController::class, 'byUsername']);
-    Route::get('byUsernames/{usernames}', [UsersLookupController::class, 'byUsernames']);
+    Route::post('byId', [UsersLookupController::class, 'byId'])->name('users-lookup.byId');
+    Route::post('byIds', [UsersLookupController::class, 'byIds'])->name('users-lookup.byIds');
+    Route::post('byUsername', [UsersLookupController::class, 'byUsername'])->name('users-lookup.byUsername');
+    Route::post('byUsernames', [UsersLookupController::class, 'byUsernames'])->name('users-lookup.byUsernames');
 });
 
 Route::group(['prefix' => 'search-tweets'], function () {
