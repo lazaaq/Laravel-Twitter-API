@@ -18,16 +18,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('home');
 
 Route::group(['prefix' => 'timelines'], function () {
-    Route::get('', [TimelinesController::class, 'index']);
+    Route::get('', [TimelinesController::class, 'index'])->name('timelines');
     Route::post('tweet', [TimelinesController::class, 'tweet'])->name('timelines.tweet');
     Route::post('mention', [TimelinesController::class, 'mention'])->name('timelines.mention');
 });
 
 Route::group(['prefix' => 'users-lookup'], function () {
-    Route::get('', [UsersLookupController::class, 'index']);
+    Route::get('', [UsersLookupController::class, 'index'])->name('users-lookup');
     Route::post('byId', [UsersLookupController::class, 'byId'])->name('users-lookup.byId');
     Route::post('byIds', [UsersLookupController::class, 'byIds'])->name('users-lookup.byIds');
     Route::post('byUsername', [UsersLookupController::class, 'byUsername'])->name('users-lookup.byUsername');
@@ -35,6 +35,6 @@ Route::group(['prefix' => 'users-lookup'], function () {
 });
 
 Route::group(['prefix' => 'search-tweets'], function () {
-    Route::get('', [SearchTweetsController::class, 'index']);
+    Route::get('', [SearchTweetsController::class, 'index'])->name('search-tweets');
     Route::post('search', [SearchTweetsController::class, 'search'])->name('search-tweets.search');
 });

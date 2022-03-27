@@ -7,36 +7,20 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
+          <a class="nav-link @if(Route::current()->getName() == 'home') active @endif" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="/tweet-lookup" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Tweet Lookup
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/tweet-lookup#single">Single Tweet</a></li>
-            <li><a class="dropdown-item" href="/tweet-lookup#multiple">Multiple Tweets</a></li>
-          </ul>
+          <li class="nav-item dropdown">
+            <a href="/timelines" class="nav-link @if(Route::current()->getName() == 'timelines') active @endif">Timelines</a>
+          </li>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="/users-lookup" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Users Lookup
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/users-lookup#byId">User By ID</a></li>
-            <li><a class="dropdown-item" href="/users-lookup#byIds">Users By ID</a></li>
-            <li><a class="dropdown-item" href="/users-lookup#byUsername">User By Username</a></li>
-            <li><a class="dropdown-item" href="/users-lookup#byUsernames">Users By Username</a></li>
-          </ul>
+          <li class="nav-item dropdown">
+            <a href="/users-lookup" class="nav-link @if(Route::current()->getName() == 'users-lookup') active @endif">Users Lookup</a>
+          </li>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="/manage-tweets" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Manage Tweets
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/manage-tweets#create">Create a Tweet</a></li>
-            <li><a class="dropdown-item" href="/manage-tweets#delete">Delete a Tweet</a></li>
-          </ul>
+          <a href="/search-tweets" class="nav-link @if(Route::current()->getName() == 'search-tweets') active @endif">Search Tweets</a>
         </li>
       </ul>
     </div>

@@ -9,7 +9,7 @@
       @csrf
       <p>Input The Query</p>
       <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="What's Happening" name="myquery">
+        <input type="text" class="form-control" placeholder="from:{your_username}" name="myquery">
         <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
       </div>
     </form>

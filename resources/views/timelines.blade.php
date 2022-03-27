@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="container mt-5 content">
-  <div id="single">
+  <div id="tweet">
     <h2>Get Tweet Timelines using User ID</h2>
     <form action="{{ route('timelines.tweet') }}" method="post">
       @csrf
@@ -15,7 +15,7 @@
     </form>
   </div>
   <hr>
-  <div id="multiple">
+  <div id="mention">
     <h2>Get Mention Timelines using User ID</h2>
     <form action="{{ route('timelines.mention') }}" method="post">
       @csrf
