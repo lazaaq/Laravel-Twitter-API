@@ -36,5 +36,5 @@ Route::group(['prefix' => 'users-lookup'], function () {
 
 Route::group(['prefix' => 'search-tweets'], function () {
     Route::get('', [SearchTweetsController::class, 'index']);
-    Route::get('search/{query}', [SearchTweetsController::class, 'search']);
+    Route::post('search', [SearchTweetsController::class, 'search'])->name('search-tweets.search');
 });

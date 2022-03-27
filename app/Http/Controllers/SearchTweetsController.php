@@ -11,8 +11,11 @@ class SearchTweetsController extends Controller
         return view('search-tweets');
     }
 
-    public function search($query) {
-        if ($query == '') {
+    public function search(Request $request) {
+        $request->validate([
+            'myquery' => 'required',
+        ]);
+        if ($request->myquery == '') {
             return response()->json([
                 'response' => []
             ]);
@@ -24,7 +27,7 @@ class SearchTweetsController extends Controller
             'Authorization' => 'Bearer ' . env('BEARER_TOKEN'),
         ];
         
-        $url = $uri . 'tweets/search/recent?query=' . $query;
+        $url = $uri . 'tweets/search/recent?query=' . $request->myquery;
         $response = $client->request('GET', $url, [
             'headers' => $headers
         ])->getBody()->getContents();
