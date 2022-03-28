@@ -22,19 +22,19 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'timelines'], function () {
     Route::get('', [TimelinesController::class, 'index'])->name('timelines');
-    Route::post('tweet', [TimelinesController::class, 'tweet'])->name('timelines.tweet');
-    Route::post('mention', [TimelinesController::class, 'mention'])->name('timelines.mention');
+    Route::get('tweet', [TimelinesController::class, 'tweet'])->name('timelines.tweet');
+    Route::get('mention', [TimelinesController::class, 'mention'])->name('timelines.mention');
 });
 
 Route::group(['prefix' => 'users-lookup'], function () {
     Route::get('', [UsersLookupController::class, 'index'])->name('users-lookup');
-    Route::post('byId', [UsersLookupController::class, 'byId'])->name('users-lookup.byId');
-    Route::post('byIds', [UsersLookupController::class, 'byIds'])->name('users-lookup.byIds');
-    Route::post('byUsername', [UsersLookupController::class, 'byUsername'])->name('users-lookup.byUsername');
-    Route::post('byUsernames', [UsersLookupController::class, 'byUsernames'])->name('users-lookup.byUsernames');
+    Route::get('byId', [UsersLookupController::class, 'byId'])->name('users-lookup.byId');
+    Route::get('byIds', [UsersLookupController::class, 'byIds'])->name('users-lookup.byIds');
+    Route::get('byUsername', [UsersLookupController::class, 'byUsername'])->name('users-lookup.byUsername');
+    Route::get('byUsernames', [UsersLookupController::class, 'byUsernames'])->name('users-lookup.byUsernames');
 });
 
 Route::group(['prefix' => 'search-tweets'], function () {
     Route::get('', [SearchTweetsController::class, 'index'])->name('search-tweets');
-    Route::post('search', [SearchTweetsController::class, 'search'])->name('search-tweets.search');
+    Route::get('search', [SearchTweetsController::class, 'search'])->name('search-tweets.search');
 });

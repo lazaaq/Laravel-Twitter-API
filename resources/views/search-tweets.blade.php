@@ -5,8 +5,7 @@
 <div class="container mt-5 content">
   <div id="create">
     <h2>Search Tweets</h2>
-    <form action="{{ route('search-tweets.search') }}" method="post">
-      @csrf
+    <form action="{{ route('search-tweets.search') }}">
       <p>Input The Query</p>
       <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="from:{your_username}" name="myquery">
