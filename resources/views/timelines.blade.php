@@ -6,6 +6,7 @@
   <div id="tweet">
     <h2>Get Tweet Timelines using User ID</h2>
     <form action="{{ route('timelines.tweet') }}" method="post">
+      <meta name="csrf-token" content="{{ csrf_token() }}">
       @csrf
       <p>Required. Enter a single User ID.</p>
       <div class="input-group mb-3">
@@ -18,6 +19,7 @@
   <div id="mention">
     <h2>Get Mention Timelines using User ID</h2>
     <form action="{{ route('timelines.mention') }}" method="post">
+      <meta name="csrf-token" content="{{ csrf_token() }}">
       @csrf
       <p>Required. Enter up to 100 comma-separated User IDs.</p>
       <div class="input-group mb-3">
